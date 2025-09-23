@@ -1,43 +1,27 @@
-body {
-    background-color: #f0f0f0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
+// Play sound and animate Bongo Cat
+function playSound(soundId) {
+    const audio = document.getElementById(soundId);
+    audio.currentTime = 0;
+    audio.play();
+
+    const catImg = document.getElementById("bongo-cat-img");
+    catImg.style.transform = "translateY(-15px)";
+    
+    setTimeout(() => {
+        catImg.style.transform = "translateY(0)";
+    }, 100);
 }
 
-.container {
-    text-align: center;
+// Floating UI panel animation
+const uiPanel = document.getElementById("uiPanel");
+let t = 0;
+
+function floatUI() {
+    t += 0.01; // speed
+    const x = Math.sin(t) * 20; // horizontal drift
+    const y = Math.cos(t * 0.9) * 15; // vertical drift
+    uiPanel.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    requestAnimationFrame(floatUI);
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.bongo-cat img {
-    width: 200px;
-    transition: transform 0.1s;
-}
-
-.buttons {
-    margin-top: 20px;
-}
-
-button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffcc00;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #ffaa00;
-}
+floatUI();
