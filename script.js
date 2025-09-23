@@ -20,7 +20,8 @@ function floatUI() {
     t += 0.01; // speed
     const x = Math.sin(t) * 20; // horizontal drift
     const y = Math.cos(t * 0.9) * 15; // vertical drift
-    uiPanel.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    uiPanel.style.left = `calc(50% + ${x}px)`;
+    uiPanel.style.top = `calc(50% + ${y}px)`;
     requestAnimationFrame(floatUI);
 }
 
