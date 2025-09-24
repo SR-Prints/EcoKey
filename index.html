@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bongo Cat Webflasher Clone</title>
+    <title>EcoKey UI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="background"></div>
 
-    <div class="ui-panel" id="uiPanel">
-        <h1>Bongo Cat Webflasher</h1>
-        <div class="bongo-cat">
-            <img id="bongo-cat-img" src="https://vostoklabs.github.io/Bongo_cat_webflasher/bongo_cat.png" alt="Bongo Cat">
-        </div>
+    <div class="ui-panel">
+        <h1>EcoKey UI</h1>
         <div class="buttons">
             <button onclick="playSound('sound1')">Hit 1</button>
             <button onclick="playSound('sound2')">Hit 2</button>
@@ -25,6 +22,12 @@
     <audio id="sound2" src="https://vostoklabs.github.io/Bongo_cat_webflasher/sounds/kick.mp3"></audio>
     <audio id="sound3" src="https://vostoklabs.github.io/Bongo_cat_webflasher/sounds/hihat.mp3"></audio>
 
-    <script src="script.js"></script>
+    <script>
+        function playSound(soundId) {
+            const audio = document.getElementById(soundId);
+            audio.currentTime = 0;
+            audio.play();
+        }
+    </script>
 </body>
 </html>
