@@ -1,6 +1,6 @@
 // First button: regular download
 const downloadBtn = document.getElementById("download-btn");
-const fileUrl1 = "YOUR_FILE_LINK_HERE"; // Replace with your normal download file link
+const fileUrl1 = "https://github.com/SR-Prints/EcoKey/raw/main/EcoKey.dmg"; // Replace with your normal download file link
 
 downloadBtn.addEventListener("click", () => {
     const link = document.createElement("a");
