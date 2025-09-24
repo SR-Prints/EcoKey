@@ -4,18 +4,27 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(135deg, #0b1a2b, #112b44);
 }
 
-/* UI panel */
+/* Centering wrapper */
+.center-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* UI panel perfectly centered */
 .ui-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 320px;
     padding: 40px;
     background: rgba(10, 25, 45, 0.95);
     border-radius: 20px;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
     text-align: center;
     color: #ffa500;
 }
