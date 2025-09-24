@@ -1,28 +1,25 @@
-// Play sound and animate Bongo Cat
-function playSound(soundId) {
-    const audio = document.getElementById(soundId);
-    audio.currentTime = 0;
-    audio.play();
+const typingArea = document.getElementById("typing-area");
+const wpmDisplay = document.getElementById("wpm");
+const startBtn = document.getElementById("start-btn");
+const textToType = document.getElementById("text-to-type").innerText;
 
-    const catImg = document.getElementById("bongo-cat-img");
-    catImg.style.transform = "translateY(-15px)";
-    
-    setTimeout(() => {
-        catImg.style.transform = "translateY(0)";
-    }, 100);
-}
+let startTime;
 
-// Floating UI panel animation
-const uiPanel = document.getElementById("uiPanel");
-let t = 0;
+startBtn.addEventListener("click", () => {
+    typingArea.value = "";
+    typingArea.disabled = false;
+    typingArea.focus();
+    startTime = new Date().getTime();
+    wpmDisplay.innerText = 0;
+});
 
-function floatUI() {
-    t += 0.01; // speed
-    const x = Math.sin(t) * 20; // horizontal drift
-    const y = Math.cos(t * 0.9) * 15; // vertical drift
-    uiPanel.style.left = `calc(50% + ${x}px)`;
-    uiPanel.style.top = `calc(50% + ${y}px)`;
-    requestAnimationFrame(floatUI);
-}
-
-floatUI();
+typingArea.addEventListener("input", () => {
+    const typedText = typingArea.value;
+    const wordsTyped = typedText.trim().split(/\s+/).filter(w => w.length > 0).length;
+    const currentTime = new Date().getTime();
+    const minutesElapsed = (currentTime - startTime) / 60000; // convert ms to minutes
+    const wpm = Math.floor(wordsTyped / minutesElapsed);
+    if (!isNaN(wpm) && minutesElapsed > 0) {
+        wpmDisplay.innerText = wpm;
+    }
+});
