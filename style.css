@@ -15,11 +15,12 @@ body, html {
     z-index: -1;
 }
 
-/* Floating UI panel wrapper */
+/* Centered UI panel */
 .ui-panel {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 320px;
     padding: 40px;
     background: rgba(10, 25, 45, 0.95);
@@ -27,19 +28,12 @@ body, html {
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
     text-align: center;
     color: #ffa500;
-    /* remove transform here, will be applied dynamically in JS */
 }
 
 /* Headline */
 .ui-panel h1 {
     margin-bottom: 30px;
     font-size: 28px;
-}
-
-/* Bongo Cat */
-.bongo-cat img {
-    width: 200px;
-    transition: transform 0.1s;
 }
 
 /* Buttons */
