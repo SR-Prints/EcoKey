@@ -3,31 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoKey UI</title>
+    <title>EcoKey WPM Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="center-wrapper">
         <div class="ui-panel">
-            <h1>EcoKey UI</h1>
-            <div class="buttons">
-                <button onclick="playSound('sound1')">Hit 1</button>
-                <button onclick="playSound('sound2')">Hit 2</button>
-                <button onclick="playSound('sound3')">Hit 3</button>
+            <h1>EcoKey WPM Tracker</h1>
+
+            <p id="text-to-type">The quick brown fox jumps over the lazy dog.</p>
+
+            <textarea id="typing-area" rows="5" placeholder="Start typing here..." disabled></textarea>
+
+            <div class="wpm-display">
+                WPM: <span id="wpm">0</span>
             </div>
+
+            <button id="start-btn">Start</button>
         </div>
     </div>
 
-    <audio id="sound1" src="https://vostoklabs.github.io/Bongo_cat_webflasher/sounds/snare.mp3"></audio>
-    <audio id="sound2" src="https://vostoklabs.github.io/Bongo_cat_webflasher/sounds/kick.mp3"></audio>
-    <audio id="sound3" src="https://vostoklabs.github.io/Bongo_cat_webflasher/sounds/hihat.mp3"></audio>
-
-    <script>
-        function playSound(soundId) {
-            const audio = document.getElementById(soundId);
-            audio.currentTime = 0;
-            audio.play();
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
